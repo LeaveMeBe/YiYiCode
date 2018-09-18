@@ -1,2 +1,2 @@
-# YiYiCode.github.io
+# YiYiCode
 YiYiCode Website
