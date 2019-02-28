@@ -13,15 +13,15 @@
 <body>
 <!--a href="https://play.google.com/store/apps/details?id=com.bitblank.eachvpn" id="alink_1">Jump1</a-->
 <br>
-<a href="" id="alink_2" onclick="Jump();">Jump2</a>
+<a href="javascript:void(0);" id="alink_2" onclick="Jump();">Jump2</a>
 </body>
 <script>
+    document.getElementById('alink_2').click();
     function Jump(){
         setTimeout(function () {
             window.location = "https://play.google.com/store/apps/details?id=com.bitblank.eachvpn";
         },1500);
     };
-document.getElementById('alink_2').click();
 </script>
 <!--script type="text/javascript">
 
