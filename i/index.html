@@ -11,7 +11,8 @@
     </style>
 </head>
 <body>
-<a href="https://eachvpn.com/invite_link/77777" id="alink_2" onclick="Jump();" style="visibility: hidden;">Jump</a>
+<!--a href="https://eachvpn.com/invite_link/77777" id="alink_2" onclick="Jump();" style="visibility: hidden;">Jump</a-->
+<span>Method 3</span>
 </body>
 <script>
     // 安卓自带浏览器没有GP时用http拉起商店是否有超时，如有可以超时后换掉商店链接，改为官网下载，方式同Google浏览器用intent方式。
@@ -19,16 +20,16 @@
     // Method 1 电脑浏览器可能弹窗拦截 手机待验证
     //document.getElementById("alink_1").click();
     // Method 2 规避弹窗拦截
-
+/*
     document.getElementById("alink_2").click();
     function Jump() {
         setTimeout(function () {
             window.location = 'https://play.google.com/store/apps/details?id=com.bitblank.eachvpn';
         },1500);
     }
-
+*/
     // Method 3 构造form表单提交请求
-    /*
+
     var form = document.createElement('form');
     form.action = 'https://eachvpn.com/invite_link/77777';
     form.target = '_self';
@@ -38,7 +39,7 @@
     setTimeout(function () {
         window.location = 'https://play.google.com/store/apps/details?id=com.bitblank.eachvpn';
     },1500);
-    */
+
 </script>
 <!--script type="text/javascript">
 
