@@ -91,7 +91,7 @@
 
     function Jump() {
         setTimeout(function () {
-            window.location = officialHref;
+            window.location = openAppHref;
         }, 1500);
     }
     function timeoutRedirect() {
@@ -102,13 +102,11 @@
             window.location = mainHref;
             return;
         } else if (ua.chromeVersion >= 63) {
-            document.getElementById("alink").href = openAppHref;
+            document.getElementById("alink").href = officialHref;
             document.getElementById("alink").click();
-            return;
         } else {
-            document.getElementById("alink").href = openAppHref;
+            document.getElementById("alink").href = officialHref;
             document.getElementById("alink").click();
-            return;
         }
         document.getElementById("redirect_text").innerText = "Redirecting to Google Play ...";
 
