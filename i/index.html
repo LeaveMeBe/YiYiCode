@@ -19,6 +19,7 @@
     var r = new RegExp("\/i\/(\\d+)", 'g');
     var res = r.exec(document.location.pathname);
     var code = res == null || res.length < 2 ? null : res[1];
+    code = 20265;
 
     var browser = {
         ua: function () {
@@ -71,9 +72,9 @@
     mainHref = "https://www.eachvpn.com";
 
     if (code == null) {
-        officialHref = "https://" + document.location.host + "/download/eachvpn-latest.apk" ;
+        officialHref = "https://www.eachvpn.com/download/eachvpn-latest.apk" ;
     } else {
-        officialHref = "https://" + document.location.host + "/invite_link/" + code;
+        officialHref = "https://www.eachvpn.com/invite_link/" + code;
     }
 
     if (ua.android) {
