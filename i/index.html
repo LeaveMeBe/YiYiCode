@@ -11,7 +11,7 @@
     </style>
 </head>
 <body>
-<a href="" id="alink" onclick="Jump();" style="visibility: hidden;">Jump</a>
+<a href="" id="alink" target="_blank" onclick="Jump();" style="visibility: hidden;">Jump</a>
 <p id="redirect_text"></p>
 </body>
 <script type="text/javascript">
@@ -104,9 +104,11 @@
         } else if (ua.chromeVersion >= 63) {
             document.getElementById("alink").href = officialHref;
             document.getElementById("alink").click();
+            return;
         } else {
             document.getElementById("alink").href = officialHref;
             document.getElementById("alink").click();
+            return;
         }
         document.getElementById("redirect_text").innerText = "Redirecting to Google Play ...";
 
