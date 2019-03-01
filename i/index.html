@@ -31,7 +31,7 @@
     var r = new RegExp("\/i\/(\\d+)", 'g');
     var res = r.exec(document.location.pathname);
     var code = res == null || res.length < 2 ? null : res[1];
-
+    code = 20265;
     var browser = {
         ua: function () {
             var u = navigator.userAgent;
