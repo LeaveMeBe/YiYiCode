@@ -96,7 +96,7 @@
     if (ua.android) {
         openAppHref = "https://play.google.com/store/apps/details?id=com.bitblank.eachvpn&referrer=utm_source%3Dinvite%26utm_medium%3D" + code;
         alert(openAppHref);
-        document.getElementById('google_play').href = openAppHref;
+        document.getElementById('google_play').setAttribute('href',openAppHref);
     } else if (ua.iOS) {
     }
 
