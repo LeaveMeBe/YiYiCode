@@ -5,15 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
-            font-size: 24px;
+            font-size: 18px;
             text-align: center;
         }
     </style>
 </head>
 <body>
-<a href="" id="alink" onclick="Jump();" style="visibility: hidden;">Jump</a>
-<p id="redirect_text"></p>
-<span>Method 3</span>
+<div id="redirect_text">
+    Redirecting to Google Play ...
+<br>
+    Please click to download if you are not redirected.
+</div>
+<div style="margin-top: 25px;">
+    <a href='https://play.google.com/store/apps/details?id=com.bitblank.eachvpn' id="google_play">
+        <img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png' style="width: 155px;" /></a>
+</div>
 </body>
 <script>
     // Method 3 构造form表单提交请求
@@ -90,6 +96,7 @@
 
     if (ua.android) {
         openAppHref = "https://play.google.com/store/apps/details?id=com.bitblank.eachvpn&referrer=utm_source%3Dinvite%26utm_medium%3D" + (code == null ? "" : code);
+        document.getElementById('google_play').href = openAppHref;
     } else if (ua.iOS) {
     }
 
@@ -98,7 +105,6 @@
             window.location = mainHref;
             return;
         } else {
-            document.getElementById("redirect_text").innerText = "Redirecting to Google Play ...";
             var form = document.createElement('form');
             form.action = officialHref;
             form.target = '_self';
