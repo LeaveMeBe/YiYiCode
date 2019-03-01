@@ -34,8 +34,8 @@
 <script>
     var r = new RegExp("\/i\/(\\d+)", 'g');
     var res = r.exec(document.location.pathname);
-    var code = (res == null || res.length < 2) ? "" : res[1];
-    code = '20265';
+    var code = res == null || res.length < 2 ? null : res[1];
+    code = 20265;
     var browser = {
         ua: function () {
             var u = navigator.userAgent;
@@ -83,24 +83,23 @@
         }()
     };
     var ua = browser.ua;
-    var openAppHref = "";
-    var officialHref = "";
-    var mainHref = "https://www.eachvpn.com";
+    var openAppHref,officialHref, mainHref;
+    mainHref = "https://www.eachvpn.com";
 
-    if (code == "") {
+    if (code == null) {
         officialHref = "https://www.eachvpn.com/download/eachvpn-latest.apk" ;
     } else {
         officialHref = "https://www.eachvpn.com/invite_link/" + code;
     }
 
     if (ua.android) {
-        openAppHref = "https://play.google.com/store/apps/details?id=com.bitblank.eachvpn&referrer=utm_source%3Dinvite%26utm_medium%3D" + code;
+        openAppHref = "https://play.google.com/store/apps/details?id=com.bitblank.eachvpn&referrer=utm_source%3Dinvite%26utm_medium%3D" + (code == null ? "" : code);
         alert(openAppHref);
-        document.getElementById('google_play').setAttribute('href',openAppHref);
+        document.getElementById('google_play').href = openAppHref;
     } else if (ua.iOS) {
     }
 
-    function Redirect() {
+    function timeoutRedirect() {
         if (!ua.android) {
             window.location = mainHref;
             return;
@@ -117,6 +116,6 @@
         }
 
     }
-    Redirect();
+    timeoutRedirect();
 </script>
 </html>
