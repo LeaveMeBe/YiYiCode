@@ -34,7 +34,7 @@
 <script>
     var r = new RegExp("\/i\/(\\d+)", 'g');
     var res = r.exec(document.location.pathname);
-    var code = res == null || res.length < 2 ? null : res[1];
+    var code = res == null || res.length < 2 ? "" : res[1];
     code = 20265;
     var browser = {
         ua: function () {
@@ -94,7 +94,7 @@
 
     if (ua.android) {
         alert(code);
-        openAppHref = "https://play.google.com/store/apps/details?id=com.bitblank.eachvpn&referrer=utm_source%3Dinvite%26utm_medium%3D" + (code == null ? "" : code);
+        openAppHref = "https://play.google.com/store/apps/details?id=com.bitblank.eachvpn&referrer=utm_source%3Dinvite%26utm_medium%3D" + code;
         document.getElementById('google_play').href = openAppHref;
     } else if (ua.iOS) {
     }
