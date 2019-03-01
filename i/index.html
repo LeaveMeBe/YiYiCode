@@ -12,28 +12,13 @@
 </head>
 <body>
 <div id="redirect_text">
-    Redirecting to Google Play ...
+    <span>Redirecting to Google Play ...</span>
 <br>
-    Please click to download if you are not redirected.
+    <span>If you can't launch Google Play, please open it manually.</span>
 </div>
-<div style="margin-top: 25px;">
-    <a href='https://play.google.com/store/apps/details?id=com.bitblank.eachvpn' id="google_play">
-        <img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png' style="width: 155px;" /></a>
 </div>
 </body>
 <script>
-    // Method 3 构造form表单提交请求
-    /*
-    var form = document.createElement('form');
-    form.action = 'https://eachvpn.com/invite_link/90512';
-    form.target = '_self';
-    form.method = 'POST';
-    document.body.appendChild(form);
-    form.submit();
-    setTimeout(function () {
-        window.location = 'https://play.google.com/store/apps/details?id=com.bitblank.eachvpn';
-    },1500);
-    */
     var r = new RegExp("\/i\/(\\d+)", 'g');
     var res = r.exec(document.location.pathname);
     var code = res == null || res.length < 2 ? null : res[1];
