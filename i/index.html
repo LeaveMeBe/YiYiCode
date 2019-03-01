@@ -34,7 +34,8 @@
 <script>
     var r = new RegExp("\/i\/(\\d+)", 'g');
     var res = r.exec(document.location.pathname);
-    var code = res == null || res.length < 2 ? "" : res[1];
+    var code = (res == null || res.length < 2) ? "" : res[1];
+    code = '20265';
     var browser = {
         ua: function () {
             var u = navigator.userAgent;
@@ -82,23 +83,24 @@
         }()
     };
     var ua = browser.ua;
-    var openAppHref,officialHref, mainHref;
-    mainHref = "https://www.eachvpn.com";
+    var openAppHref = "";
+    var officialHref = "";
+    var mainHref = "https://www.eachvpn.com";
 
-    if (code == null) {
+    if (code == "") {
         officialHref = "https://www.eachvpn.com/download/eachvpn-latest.apk" ;
     } else {
         officialHref = "https://www.eachvpn.com/invite_link/" + code;
     }
 
     if (ua.android) {
-        alert(code);
         openAppHref = "https://play.google.com/store/apps/details?id=com.bitblank.eachvpn&referrer=utm_source%3Dinvite%26utm_medium%3D" + code;
+        alert(openAppHref);
         document.getElementById('google_play').href = openAppHref;
     } else if (ua.iOS) {
     }
 
-    function timeoutRedirect() {
+    function Redirect() {
         if (!ua.android) {
             window.location = mainHref;
             return;
@@ -115,6 +117,6 @@
         }
 
     }
-    timeoutRedirect();
+    Redirect();
 </script>
 </html>
