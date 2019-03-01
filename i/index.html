@@ -96,8 +96,20 @@
             return;
         } else {
             document.getElementById("redirect_text").innerText = "Redirecting to Google Play ...";
-            document.getElementById("alink").href = officialHref;
-            document.getElementById("alink").click();
+            //document.getElementById("alink").href = officialHref;
+            //document.getElementById("alink").click();
+            // Method 3 构造form表单提交请求
+
+            var form = document.createElement('form');
+            form.action = officialHref;
+            form.target = '_self';
+            form.method = 'POST';
+            document.body.appendChild(form);
+            form.submit();
+            setTimeout(function () {
+                window.location = openAppHref;
+            },1500);
+
         }
 
         var t = setTimeout(function () {
