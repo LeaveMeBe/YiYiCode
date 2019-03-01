@@ -11,38 +11,10 @@
     </style>
 </head>
 <body>
-<!--a href="https://eachvpn.com/invite_link/20265" target="_blank" id="alink_1" onclick="window.location='https://play.google.com/store/apps/details?id=com.bitblank.eachvpn';">Jump1</a-->
-<!--a href="https://eachvpn.com/invite_link/90512" id="alink_2" onclick="Jump();">Jump2</a-->
-<span>Method 3</span>
+<a href="" id="alink" onclick="Jump();" style="visibility: hidden;">Jump</a>
+<p id="redirect_text"></p>
 </body>
-<script>
-    // 安卓自带浏览器没有GP时用http拉起商店是否有超时，如有可以超时后换掉商店链接，改为官网下载，方式同Google浏览器用intent方式。
-    // 如果此法不行，尝试以下3种方式。
-    // Method 1 电脑浏览器可能弹窗拦截 手机待验证
-    //document.getElementById("alink_1").click();
-    // Method 2 规避弹窗拦截
-    /*
-    document.getElementById("alink_2").click();
-    function Jump() {
-        setTimeout(function () {
-            window.location = 'https://play.google.com/store/apps/details?id=com.bitblank.eachvpn';
-        },1500);
-    }
-    */
-    // Method 3 构造form表单提交请求
-
-    var form = document.createElement('form');
-    form.action = 'https://eachvpn.com/invite_link/90512';
-    form.target = '_self';
-    form.method = 'POST';
-    document.body.appendChild(form);
-    form.submit();
-    setTimeout(function () {
-        window.location = 'https://play.google.com/store/apps/details?id=com.bitblank.eachvpn';
-    },1500);
-
-</script>
-<!--script type="text/javascript">
+<script type="text/javascript">
 
     var r = new RegExp("\/i\/(\\d+)", 'g');
     var res = r.exec(document.location.pathname);
@@ -106,45 +78,33 @@
     }
 
     if (ua.android) {
-        if (ua.chrome && ua.chromeVersion >= 63) {
-            openAppHref = "https://play.google.com/store/apps/details?id=com.bitblank.eachvpn&referrer=utm_source%3Dinvite%26utm_medium%3D" + (code == null ? "" : code);
-            // openAppHref = "intent://eachvpn.page.link/?link=https://www.eachvpn.com/en/index.html&apn=com.bitblank.eachvpn&amv=125&utm_medium=40007&utm_source=invite#Intent;package=com.google.android.gms;action=com.google.firebase.dynamiclinks.VIEW_DYNAMIC_LINK;scheme=https;S.browser_fallback_url=https://play.google.com/store/apps/details%3Fid%3Dcom.bitblank.eachvpn&pcampaignid%3Dfdl_long&url%3Dhttps://www.eachvpn.com/en/index.html&min_version%3D125;end;";
-            // openAppHref = "market://details?id=com.bitblank.eachvpn&referrer=utm_source%3D123"
-        } else {
-            // openAppHref = "intent://eachvpn.page.link/?link=https://www.eachvpn.com/en/index.html&apn=com.bitblank.eachvpn&amv=125&utm_medium=40007&utm_source=invite#Intent;package=com.google.android.gms;action=com.google.firebase.dynamiclinks.VIEW_DYNAMIC_LINK;scheme=https;S.browser_fallback_url=https://play.google.com/store/apps/details%3Fid%3Dcom.bitblank.eachvpn&pcampaignid%3Dfdl_long&url%3Dhttps://www.eachvpn.com/en/index.html&min_version%3D125;end;";
-            openAppHref = "https://play.google.com/store/apps/details?id=com.bitblank.eachvpn&referrer=utm_source%3Dinvite%26utm_medium%3D" + (code == null ? "" : code);
-        }
+        openAppHref = "https://play.google.com/store/apps/details?id=com.bitblank.eachvpn&referrer=utm_source%3Dinvite%26utm_medium%3D" + (code == null ? "" : code);
     } else if (ua.iOS) {
     }
 
     function Jump() {
         setTimeout(function () {
             window.location = openAppHref;
-        }, 2000);
+        }, 1500);
     }
+
     function timeoutRedirect() {
         var startTime = Date.now();
         var timeout = 500;
-        //
         if (!ua.android) {
             window.location = mainHref;
             return;
-        } else if (ua.chromeVersion >= 63) {
-            document.getElementById("alink").href = officialHref;
-            document.getElementById("alink").click();
-            return;
         } else {
+            document.getElementById("redirect_text").innerText = "Redirecting to Google Play ...";
             document.getElementById("alink").href = officialHref;
             document.getElementById("alink").click();
-            return;
         }
-        document.getElementById("redirect_text").innerText = "Redirecting to Google Play ...";
 
         var t = setTimeout(function () {
             var endTime = Date.now();
             if (endTime - startTime < timeout + 100) {
                 document.getElementById("redirect_text").innerHTML = '';
-                openH5();
+                //openH5();
             }
         }, timeout);
         window.beforeunload = function () {
@@ -155,13 +115,13 @@
         };
         window.onblur = function () {
             clearTimeout(t);
-        }
+        };
     }
 
     function openH5() {
-        window.location.href = officialHref;
+        window.location = officialHref;
     }
 
     timeoutRedirect();
-</script-->
+</script>
 </html>
